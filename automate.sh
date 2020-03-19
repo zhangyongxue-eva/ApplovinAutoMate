@@ -8,6 +8,17 @@ echo "第四个参数：$4"
 PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
 LOCAL_PATH=${PROJECT_DIR}/local.properties
 
+#测试当前路径
+dir=`ls $PROJECT_DIR ` #定义遍历的目录
+for i in $dir
+do
+    echo $i
+done
+
+echo "PROJECT_DIR：$PROJECT_DIR"
+echo "LOCAL_PATH：$LOCAL_PATH"
+#
+
 sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
 sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
 sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
