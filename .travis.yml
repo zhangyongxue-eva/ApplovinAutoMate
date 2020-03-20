@@ -1,5 +1,5 @@
 os: osx
-jdk: oraclejdk8
+jdk: openjdk8
 language: android
 android:
   components:
