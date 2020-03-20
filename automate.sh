@@ -6,7 +6,7 @@ echo "第三个参数：$3"
 echo "第四个参数：$4"
 
 PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
-LOCAL_PATH=${PROJECT_DIR}/gradle.properties
+LOCAL_PATH=${PROJECT_DIR}/local.properties
 
 echo "PROJECT_DIR：$PROJECT_DIR"
 echo "LOCAL_PATH：$LOCAL_PATH"
