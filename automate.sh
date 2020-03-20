@@ -6,12 +6,19 @@ echo "第三个参数：$3"
 echo "第四个参数：$4"
 
 PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
-LOCAL_PATH=${PROJECT_DIR}/local.properties
+LOCAL_PATH=${PROJECT_DIR}/gradle.properties
 GRADLE_PATH=${PROJECT_DIR}/app/build.gradle
 
 echo "PROJECT_DIR：$PROJECT_DIR"
 echo "LOCAL_PATH：$LOCAL_PATH"
 echo "GRADLE_PATH：$GRADLE_PATH"
+# test 参数写入后前 将 LOCAL_PATH 文件中的内容读出并打印出来
+echo "local.properties 下的所有内容"
+filelist=`cat  $LOCAL_PATH`
+for list in  ${filelist}
+do
+    echo ${list}
+done
 
 sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
 sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
@@ -25,7 +32,7 @@ for i in $dir
 do
     echo $i
 done
-# test 将 local.properties 文件中的内容读出并打印出来
+# test 参数写入后 将 LOCAL_PATH 文件中的内容读出并打印出来
 echo "local.properties 下的所有内容"
 filelist=`cat  $LOCAL_PATH`
 for list in  ${filelist}
