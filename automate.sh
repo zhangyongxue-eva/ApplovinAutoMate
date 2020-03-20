@@ -7,12 +7,29 @@ echo "第四个参数：$4"
 
 PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
 LOCAL_PATH=${PROJECT_DIR}/local.properties
+GRADLE_PATH=${PROJECT_DIR}/app/build.gradle
 
-#测试当前路径
+# test 打印工程根目录中的所有文件名
+echo "遍历根目录下的所有文件名"
 dir=`ls $PROJECT_DIR ` #定义遍历的目录
 for i in $dir
 do
     echo $i
+done
+# test 将 local.properties 文件中的内容读出并打印出来
+echo "local.properties 下的所有内容"
+filelist=`cat  $LOCAL_PATH`
+for list in  ${filelist}
+do
+    echo ${list}
+done
+
+# test 将 build.gradle 文件中的内容读出并打印出来
+echo "gradle.properties 下的所有内容"
+filelist2=`cat  $GRADLE_PATH`
+for list in  ${filelist2}
+do
+    echo ${list}
 done
 
 echo "PROJECT_DIR：$PROJECT_DIR"
@@ -61,6 +78,15 @@ print_blue "installDebug...\n"
 ./gradlew installDebug
 
 print_blue "\n\n\n Done Installing\n"
+
+
+# test 将 build.gradle 文件中的内容读出并打印出来
+echo "before lancher activity print gradle.properties 下的所有内容"
+filelist2=`cat  $GRADLE_PATH`
+for list in  ${filelist2}
+do
+    echo ${list}
+done
 
 #Launch Main Activity
 adb shell am start -n "${1}/com.test.pname.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
