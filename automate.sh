@@ -9,6 +9,15 @@ PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
 LOCAL_PATH=${PROJECT_DIR}/local.properties
 GRADLE_PATH=${PROJECT_DIR}/app/build.gradle
 
+echo "PROJECT_DIR：$PROJECT_DIR"
+echo "LOCAL_PATH：$LOCAL_PATH"
+echo "GRADLE_PATH：$GRADLE_PATH"
+
+sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
+sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
+sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
+sed -i '' "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
+
 # test 打印工程根目录中的所有文件名
 echo "遍历根目录下的所有文件名"
 dir=`ls $PROJECT_DIR ` #定义遍历的目录
@@ -32,14 +41,7 @@ do
     echo ${list}
 done
 
-echo "PROJECT_DIR：$PROJECT_DIR"
-echo "LOCAL_PATH：$LOCAL_PATH"
 #
-
-sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
-sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
-sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
-sed -i '' "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
 
 
 # Functions for customizing colors(Optional)
