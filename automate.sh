@@ -7,29 +7,15 @@ echo "第四个参数：$4"
 
 PROJECT_DIR=$(cd "$(dirname "$0")"; pwd)
 LOCAL_PATH=${PROJECT_DIR}/gradle.properties
-GRADLE_PATH=${PROJECT_DIR}/app/build.gradle
 
 echo "PROJECT_DIR：$PROJECT_DIR"
 echo "LOCAL_PATH：$LOCAL_PATH"
-echo "GRADLE_PATH：$GRADLE_PATH"
-# test 参数写入后前 将 LOCAL_PATH 文件中的内容读出并打印出来
-echo "local.properties 下的所有内容"
-filelist=`cat  $LOCAL_PATH`
-for list in  ${filelist}
-do
-    echo ${list}
-done
 
-#sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
-#sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
-#sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
-#sed -i '' "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
 
-#sed 's/book/books/' file  特殊字符需要转义且需要将转义后的字符串用双引号括起来
-sed -i '' "s/key_applicationid=.*/key_applicationid=${1}/g" $LOCAL_PATH
-sed -i '' "s/key_oemappname=.*/key_oemappname=${2}/g" $LOCAL_PATH
-sed -i '' "s/key_targeturl=.*/key_targeturl=${3}/g" $LOCAL_PATH
-sed -i '' "s/key_applovin=.*/key_applovin=${4}/g" $LOCAL_PATH
+sed -i "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
+sed -i "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
+sed -i "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
+sed -i "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
 
 # test 打印工程根目录中的所有文件名
 echo "遍历根目录下的所有文件名"
@@ -45,16 +31,6 @@ for list in  ${filelist}
 do
     echo ${list}
 done
-
-# test 将 build.gradle 文件中的内容读出并打印出来
-echo "gradle.properties 下的所有内容"
-filelist2=`cat  $GRADLE_PATH`
-for list in  ${filelist2}
-do
-    echo ${list}
-done
-
-#
 
 
 # Functions for customizing colors(Optional)
@@ -93,15 +69,6 @@ print_blue "installDebug...\n"
 ./gradlew installDebug
 
 print_blue "\n\n\n Done Installing\n"
-
-
-# test 将 build.gradle 文件中的内容读出并打印出来
-echo "before lancher activity print gradle.properties 下的所有内容"
-filelist2=`cat  $GRADLE_PATH`
-for list in  ${filelist2}
-do
-    echo ${list}
-done
 
 #Launch Main Activity
 adb shell am start -n "${1}/com.test.pname.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
