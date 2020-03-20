@@ -20,10 +20,16 @@ do
     echo ${list}
 done
 
-sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
-sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
-sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
-sed -i '' "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
+#sed -i '' "s#^key_applicationid=.*#key_applicationid=${1}#g" $LOCAL_PATH
+#sed -i '' "s#^key_oemappname=.*#key_oemappname=${2}#g" $LOCAL_PATH
+#sed -i '' "s#^key_targeturl=.*#key_targeturl=${3}#g" $LOCAL_PATH
+#sed -i '' "s#^key_applovin=.*#key_applovin=${4}#g" $LOCAL_PATH
+
+#sed 's/book/books/' file  特殊字符需要转义且需要将转义后的字符串用双引号括起来
+sed -i '' "s/key_applicationid=.*/key_applicationid=${1}/g" $LOCAL_PATH
+sed -i '' "s/key_oemappname=.*/key_oemappname=${2}/g" $LOCAL_PATH
+sed -i '' "s/key_targeturl=.*/key_targeturl=${3}/g" $LOCAL_PATH
+sed -i '' "s/key_applovin=.*/key_applovin=${4}/g" $LOCAL_PATH
 
 # test 打印工程根目录中的所有文件名
 echo "遍历根目录下的所有文件名"
