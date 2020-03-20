@@ -32,9 +32,9 @@ cache:
 
 #########
 env:
-  bundle_id: com.test.demo130
+  bundle_id: com.test.demo133
   callback_url: http://api-mas-admin-test.yodo1.com/api/mas/task/async/3258d827-e7bc-4cf4-98f2-f84e4b3f0ffe
   sdk_key: SF6PilX5Z_tsO3KQihp4rN4DZqLT7g_6EJEhseqUwXmKrJ94xBzIXL6pPEVdryimtu6_2-GA8Wga0OgXPkWMDe
-  app_name: Demo130
+  app_name: Demo133
 
 script: "sh automate.sh $bundle_id $app_name $callback_url $sdk_key"
