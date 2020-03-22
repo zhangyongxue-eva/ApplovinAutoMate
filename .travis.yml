@@ -30,6 +30,7 @@ before_cache:
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 before_install:
   - "chmod +x gradlew"
+  - yes | sdkmanager "platforms;android-26"
 cache:
   directories:
     - $HOME/.gradle/caches/
