@@ -1,14 +1,15 @@
 os:
-  - linux
-# - osx
-jdk: oraclejdk8
+#  - linux
+  - osx
+#jdk: oraclejdk8
 language: android
+dist: trusty
 android:
   components:
     #- tools
     #- platform-tools
-    - build-tools-28.0.3
-    - android-28
+    - build-tools-26.0.2
+    - android-26
     - android-22
     - extra-android-m2repository
     #- extra-android-support
