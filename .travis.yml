@@ -1,6 +1,6 @@
-# os:
+os:
 #  - linux
-#   - osx
+  - osx
 jdk: oraclejdk8
 language: android
 dist: trusty
