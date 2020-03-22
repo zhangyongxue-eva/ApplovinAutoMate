@@ -1,6 +1,6 @@
 os:
-#  - linux
-  - osx
+ - linux
+#   - osx
 #jdk: oraclejdk8
 language: android
 dist: trusty
@@ -16,8 +16,8 @@ android:
     - sys-img-armeabi-v7a-android-22
     #- extra-google-google_play_services
   licenses:
-    - android-sdk-preview-license-52d11cd2
-    - android-sdk-license-c81a61d9
+#     - android-sdk-preview-license-52d11cd2
+#     - android-sdk-license-c81a61d9
     - android-sdk-license-.+
     #- google-gdk-license-.+
 before_script:
@@ -30,7 +30,7 @@ before_cache:
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 before_install:
   - "chmod +x gradlew"
-  - yes | sdkmanager "platforms;android-26"
+#   - yes | sdkmanager "platforms;android-26"
 cache:
   directories:
     - $HOME/.gradle/caches/
