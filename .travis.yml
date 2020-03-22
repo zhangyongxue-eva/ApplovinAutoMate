@@ -1,6 +1,6 @@
 os:
-#  - linux
-  - osx
+  - linux
+# - osx
 jdk: oraclejdk8
 language: android
 android:
